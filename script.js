@@ -3,22 +3,25 @@ console.log('Welcome to Phindile Sandi\'s personal website!');
 
 // Initialize EmailJS
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    emailjs.init("LN2aSLL6LOTJMGdM3");
 })();
 
-// Sample projects data - replace with your own projects
+// Projects data - Update with your actual projects
 const projects = [
     {
-        title: "Project 1",
-        description: "Description of your first project. Highlight the key features and technologies used.",
-        image: "project1.jpg",
-        link: "#"
+        title: "ShulaTech_Solutions_Sales-Data-Analysis-Project",
+        description: "This project analyzes sales data to extract valuable business insights using Python and various data science libraries.",
+        link: "https://github.com/WestKamo/ShulaTech_Solutions_Sales-Data-Analysis-Project"
     },
     {
-        title: "Project 2",
-        description: "Description of your second project. Showcase your skills and achievements.",
-        image: "project2.jpg",
-        link: "#"
+        title: "AI_Data_Automation_System",
+        description: "This project is a comprehensive AI-powered system for data-driven automation and predictive analytics. It provides intelligent data processing, anomaly detection, and automation workflows to optimize business operations and decision-making.",
+        link: "https://github.com/WestKamo/AI_Data_Automation_System"
+    },
+    {
+        title: "User-Acceptance-Testing-Bot",
+        description: "This project involves creating a bot using UiPath to automate the User Acceptance Testing (UAT) process for a web application. UAT is a critical step in the software development lifecycle where testers verify that the input data generates the expected output. In this case, the bot automates the repetitive tasks involved in UAT, such as data entry and validation, allowing testers to focus on more complex tasks.",
+        link: "https://github.com/WestKamo/User-Acceptance-Testing-Bot"
     }
 ];
 
@@ -31,11 +34,10 @@ function createProjectCards() {
         projectCard.className = 'project-card';
         
         projectCard.innerHTML = `
-            <img src="${project.image}" alt="${project.title}" class="project-image">
             <div class="project-info">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.link}" target="_blank">View Project</a>
+                <a href="${project.link}" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
             </div>
         `;
         
@@ -52,11 +54,16 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     const message = document.getElementById('message').value;
     
     // Send email using EmailJS
-    emailjs.send("default_service", "template_id", { // Replace with your service and template IDs
-        from_name: name,
-        reply_to: email,
-        message: message
-    }).then(
+    emailjs.send(
+        "service_c3la6rb",
+        "template_llv40hn",
+        {
+            from_name: name,
+            reply_to: email,
+            message: message,
+            to_name: "Phindile Sandi"
+        }
+    ).then(
         function(response) {
             document.getElementById('success-message').style.display = 'block';
             document.getElementById('contact-form').reset();
