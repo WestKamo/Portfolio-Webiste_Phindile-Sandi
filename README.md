@@ -10,16 +10,7 @@ This is my personal portfolio website showcasing my projects and skills. The web
 - About section with profile
 - Social media integration
 
-## Setup
 
-1. Clone the repository
-2. Replace profile images (`profile1.jpg` and `profile2.jpg`)
-3. Update project images and details in `script.js`
-4. Set up EmailJS for the contact form:
-   - Sign up at EmailJS.com
-   - Replace `YOUR_PUBLIC_KEY` in script.js
-   - Update template and service IDs
-5. Update social media links in the footer
 
 ## Technologies Used
 

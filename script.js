@@ -6,21 +6,26 @@ console.log('Welcome to Phindile Sandi\'s personal website!');
     emailjs.init("LN2aSLL6LOTJMGdM3");
 })();
 
-// Projects data - Update with your actual projects
+// Projects data
 const projects = [
     {
-        title: "ShulaTech_Solutions_Sales-Data-Analysis-Project",
-        description: "This project analyzes sales data to extract valuable business insights using Python and various data science libraries.",
+        title: "NWU Tech Trends Web Application",
+        description: "Designed and developed a web application to manage CRUD operations for project and client data. The application emphasizes the importance of understanding and improving existing code by adhering to architectural patterns, coding principles, and design patterns.",
+        link: "https://github.com/WestKamo/Web-API-Cloud-Hosting"
+    },
+    {
+        title: "ShulaTech Solutions Sales Data Analysis",
+        description: "This project analyzes sales data to extract valuable business insights using Python and various data science libraries. Implemented advanced analytics techniques to drive data-driven decision making.",
         link: "https://github.com/WestKamo/ShulaTech_Solutions_Sales-Data-Analysis-Project"
     },
     {
-        title: "AI_Data_Automation_System",
-        description: "This project is a comprehensive AI-powered system for data-driven automation and predictive analytics. It provides intelligent data processing, anomaly detection, and automation workflows to optimize business operations and decision-making.",
+        title: "AI Data Automation System",
+        description: "A comprehensive AI-powered system for data-driven automation and predictive analytics. Provides intelligent data processing, anomaly detection, and automation workflows to optimize business operations and decision-making.",
         link: "https://github.com/WestKamo/AI_Data_Automation_System"
     },
     {
-        title: "User-Acceptance-Testing-Bot",
-        description: "This project involves creating a bot using UiPath to automate the User Acceptance Testing (UAT) process for a web application. UAT is a critical step in the software development lifecycle where testers verify that the input data generates the expected output. In this case, the bot automates the repetitive tasks involved in UAT, such as data entry and validation, allowing testers to focus on more complex tasks.",
+        title: "User Acceptance Testing Bot",
+        description: "Created an automated UAT bot using UiPath to streamline the testing process for web applications. This solution automates repetitive testing tasks, improving efficiency and allowing testers to focus on complex scenarios.",
         link: "https://github.com/WestKamo/User-Acceptance-Testing-Bot"
     }
 ];
