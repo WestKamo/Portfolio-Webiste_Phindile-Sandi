@@ -69,13 +69,21 @@
         }
 
         .profile-header { text-align: center; border-bottom: 1px solid var(--terminal-green); padding-bottom: 15px; margin-bottom: 15px; }
+        
+        /* Profile Picture Styling */
         .profile-pic {
             width: 100px; height: 100px;
             border: 2px solid var(--terminal-green);
             border-radius: 50%; margin: 0 auto 10px;
             background: #111; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
-        .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+        /* Ensures image fills the circle perfectly */
+        .profile-pic img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
 
         nav button {
             background: transparent; border: none; color: #888; width: 100%;
@@ -225,7 +233,7 @@
         <aside>
             <div class="profile-header">
                 <div class="profile-pic">
-                    <img src="WWDG5716.JPG" alt="Phindile Sandi">
+                    <img src="images/WWDG5716.jpg" alt="Phindile Sandi Profile" width="250" height="250">
                 </div>
                 <div class="profile-info">
                     <h3 style="color: white;">PHINDILE SANDI</h3>
