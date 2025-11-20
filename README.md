@@ -17,7 +17,7 @@ This is my personal portfolio website showcasing my projects and skills. The web
 - HTML5
 - CSS3
 - JavaScript
-- EmailJS for contact form
+- formspree for contact form
 
 ## Contact
 
