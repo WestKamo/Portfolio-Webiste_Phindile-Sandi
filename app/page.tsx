@@ -42,6 +42,13 @@ export default function Home() {
               className="px-8 py-4 rounded-full text-center font-bold backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all"
             >
               View Credentials
+		</Link>
+            {/* New Contact Button */}
+            <Link 
+              href="/contact"
+              className="px-8 py-4 rounded-full text-center font-bold backdrop-blur-md bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 hover:bg-emerald-500/20 hover:-translate-y-1 transition-all"
+            >
+              Get in Touch
             </Link>
           </div>
           
