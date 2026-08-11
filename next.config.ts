@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true, O
+    unoptimized: true, 
   },
   basePath: '/Portfolio-Webiste_Phindile-Sandi',
   assetPrefix: '/Portfolio-Webiste_Phindile-Sandi',
