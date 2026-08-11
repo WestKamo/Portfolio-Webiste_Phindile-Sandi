@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interactive 3D Developer Portfolio
 
-## Getting Started
+A modern, highly scalable, and mobile-responsive web platform designed to showcase software engineering projects, data science certifications, and technical competencies. This portfolio seamlessly integrates interactive WebGL 3D environments with a frosted-glass (glassmorphic) user interface.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Interactive 3D Environments:** Utilizes Spline WebGL canvases that remain fully interactive behind the UI layer without blocking user navigation.
+* **Cinematic Page Transitions:** Implements Framer Motion to mask 3D scene loading times with smooth, app-like fade and blur transitions across routes.
+* **Glassmorphic UI Design:** Built with Tailwind CSS using backdrop blurs and layered opacities to create a sleek, frosted-glass aesthetic.
+* **Serverless Contact Integration:** Uses Formspree to securely route contact form submissions directly to email without requiring a custom Node.js backend.
+* **Responsive Architecture:** Fully optimized for mobile, tablet, and desktop viewing, dynamically adjusting flex layouts and image scaling.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Core Framework:** [Next.js (App Router)](https://nextjs.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **3D Rendering:** [Spline](https://spline.design/) (`@splinetool/react-spline`)
+* **Motion & Animation:** [Framer Motion](https://www.framer.com/motion/)
+* **Backend Integration:** [Formspree API](https://formspree.io/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+This project leverages the Next.js App Router for file-based routing and Server Components.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+/app
+ ├── layout.tsx         # Global HTML shell and metadata
+ ├── template.tsx       # Framer Motion wrapper for page transitions
+ ├── page.tsx           # '/' Route: Main Hub & Profile Summary
+ │
+ ├── /projects
+ │    └── page.tsx      # '/projects' Route: Featured deployments
+ │
+ ├── /skills
+ │    └── page.tsx      # '/skills' Route: Certifications & Competencies
+ │
+ └── /contact
+      └── page.tsx      # '/contact' Route: Formspree Integration
+/public
+ └── image_0.png        # Optimized Profile Avatar
