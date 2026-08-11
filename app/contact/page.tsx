@@ -81,7 +81,7 @@ export default function Contact() {
                     name="name" 
                     required 
                     className="w-full bg-indigo-950/30 border border-indigo-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all"
-                    placeholder="John Doe"
+                    placeholder="Lerroy Sandi"
                   />
                 </div>
                 
@@ -93,7 +93,7 @@ export default function Contact() {
                     name="email" 
                     required 
                     className="w-full bg-indigo-950/30 border border-indigo-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all"
-                    placeholder="john@company.com"
+                    placeholder="Lerroy@company.com"
                   />
                 </div>
 
@@ -113,7 +113,7 @@ export default function Contact() {
                   type="submit"
                   className="mt-2 w-full py-4 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-500 hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all flex justify-center items-center gap-2"
                 >
-                  Send Message <span>🚀</span>
+                  Send Message <span></span>
                 </button>
               </form>
             </div>
