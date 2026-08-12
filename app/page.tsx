@@ -48,8 +48,9 @@ export default function Home() {
                 Phindile Sandi
               </h1>
 
+              {/* FIXED: Replaced & with &amp; to prevent build crashes */}
               <p className="text-lg md:text-2xl text-indigo-200 font-semibold tracking-wide drop-shadow-lg text-balance">
-                Software Developer & Data Solutions Architect
+                Software Developer &amp; Data Solutions Architect
               </p>
 
               <p className="text-sm md:text-lg text-slate-100 leading-relaxed drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)] max-w-3xl">
