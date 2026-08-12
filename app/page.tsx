@@ -23,7 +23,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Container — Holds all current and future projects */}
-        <div className="flex flex-col gap-24 items-center md:items-end p-6 sm:p-8 md:p-16 lg:p-24 pb-24 min-h-[calc(100dvh-10rem)] justify-center md:justify-start mt-4 md:mt-0">
+        <div className="flex flex-col gap-32 items-center md:items-end p-6 sm:p-8 md:p-16 lg:p-24 pb-32 min-h-[calc(100dvh-10rem)] justify-center md:justify-start mt-4 md:mt-0">
           
           {/* PROJECT 1: whygodwhy.co.za */}
           <div className="pointer-events-auto w-full max-w-3xl flex flex-col gap-6 text-center md:text-right px-2 sm:px-0">
@@ -58,7 +58,38 @@ export default function Projects() {
             </div>
           </div>
           
-          {/* --- FUTURE PROJECTS CAN BE PASTED HERE --- */}
+          {/* PROJECT 2: Voxel Ventures */}
+          <div className="pointer-events-auto w-full max-w-3xl flex flex-col gap-6 text-center md:text-right px-2 sm:px-0">
+            
+            {/* Badge */}
+            <div className="flex items-center justify-center md:justify-end">
+              <span className="px-4 py-1.5 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
+                E-COMMERCE PLATFORM
+              </span>
+            </div>
+
+            {/* Glowing Holographic Title */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_20px_rgba(79,70,229,0.8)] break-words">
+              Voxel Ventures
+            </h2>
+
+            {/* High-Contrast Description */}
+            <p className="text-base sm:text-lg md:text-xl text-slate-100 leading-relaxed drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)] max-w-2xl mx-auto md:mx-0 md:ml-auto text-balance">
+              An end-to-end web ordering system designed for on-demand 3D printed components. Features a dynamic digital cart integration to streamline the procurement of rapid prototypes, custom parts, and specialized industrial 3D printing applications.
+            </p>
+
+            {/* Launch Button (Placeholder Link) */}
+            <div className="flex justify-center md:justify-end mt-4">
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-indigo-500/80 backdrop-blur-md border border-indigo-400/50 text-white font-bold hover:bg-indigo-400 hover:shadow-[0_0_25px_rgba(99,102,241,0.6)] hover:-translate-y-1 transition-all transform shadow-lg"
+              >
+                Launch Application <span className="font-mono text-xl">↗</span>
+              </a>
+            </div>
+          </div>
           
         </div>
       </div>
