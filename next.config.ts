@@ -1,8 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   output: 'export',
   images: {
-    unoptimized: true, 
+    unoptimized: true,
   },
   basePath: '/Portfolio-Webiste_Phindile-Sandi',
   assetPrefix: '/Portfolio-Webiste_Phindile-Sandi',
