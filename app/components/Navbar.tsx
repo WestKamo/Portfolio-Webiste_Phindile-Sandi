@@ -17,6 +17,13 @@ export default function Navbar() {
         {/* Nav links — wraps instead of overflowing on narrow screens */}
         <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 flex-wrap justify-center">
           <Link
+            href="/"
+            className="text-xs sm:text-sm font-semibold text-indigo-100 hover:text-white transition-colors relative group whitespace-nowrap"
+          >
+            HOME
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-400 transition-all group-hover:w-full"></span>
+          </Link>
+          <Link
             href="/projects"
             className="text-xs sm:text-sm font-semibold text-indigo-100 hover:text-white transition-colors relative group whitespace-nowrap"
           >
@@ -34,7 +41,7 @@ export default function Navbar() {
             href="/contact"
             className="text-xs sm:text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors px-4 sm:px-5 py-2 border border-emerald-400/30 rounded-full hover:bg-emerald-400/10 whitespace-nowrap"
           >
-            HIRE ME
+            CONTACT
           </Link>
         </nav>
       </div>
