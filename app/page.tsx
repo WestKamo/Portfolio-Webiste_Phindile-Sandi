@@ -11,13 +11,16 @@ export default function Home() {
       </div>
 
       {/* Scrollable overlay layer */}
-      <div className="absolute inset-0 z-10 overflow-y-auto pointer-events-none pt-20 sm:pt-24 custom-scrollbar">
+      <div className="absolute inset-0 z-10 overflow-y-auto pointer-events-none custom-scrollbar">
         
-        {/* Adjusted flex alignment to prevent vertical squishing on mobile */}
-        <div className="min-h-[calc(100dvh-5rem)] flex flex-col justify-start md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pb-12 mt-8 md:mt-0">
+        {/* 
+          pt-[40vh]: Pushes the content down on mobile so the top 40% of the screen is just the robot.
+          pb-32: Massive bottom padding to prevent the phone browser from cutting off the text. 
+        */}
+        <div className="min-h-screen flex flex-col justify-end md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pt-[40vh] md:pt-0 pb-32 md:pb-12">
           
-          {/* THE FIX: Protective glass container on mobile, holographic float on desktop */}
-          <div className="pointer-events-auto w-full max-w-5xl flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start text-center md:text-left p-6 sm:p-8 md:p-0 rounded-3xl bg-black/60 backdrop-blur-md border border-white/10 md:bg-transparent md:backdrop-blur-none md:border-transparent shadow-2xl md:shadow-none mt-4">
+          {/* Softer glass box that sits lower on the screen */}
+          <div className="pointer-events-auto w-full max-w-5xl flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start text-center md:text-left p-6 sm:p-8 md:p-0 rounded-3xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-transparent shadow-2xl md:shadow-none">
             
             {/* Circular photo */}
             <div className="relative flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full border-2 border-indigo-400/30 shadow-[0_0_40px_rgba(79,70,229,0.5)] overflow-hidden">
