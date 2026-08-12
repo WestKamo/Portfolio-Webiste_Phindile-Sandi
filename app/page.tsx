@@ -5,20 +5,23 @@ import profilePic from '@/public/image_0.png';
 export default function Home() {
   return (
     <main className="relative w-full h-[100dvh] overflow-hidden bg-transparent">
-      {/* 3D Spline Background — locked in place, fully visible, never intercepts clicks/scroll */}
+      {/* 3D Spline Background — locked in place, fully visible on all devices */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Spline scene="https://prod.spline.design/ZQi1715fbVk90eut/scene.splinecode" />
       </div>
 
-      {/* Scrollable overlay layer sits above the 3D scene. */}
+      {/* Scrollable overlay layer — handles mobile scrolling natively without breaking h-[100dvh] */}
       <div className="absolute inset-0 z-10 overflow-y-auto pointer-events-none pt-20 sm:pt-24 custom-scrollbar">
-        <div className="min-h-[calc(100dvh-5rem)] sm:min-h-[calc(100dvh-6rem)] flex flex-col justify-end items-center md:items-start p-4 sm:p-6 md:p-10 pb-8 md:pb-14">
+        
+        {/* Mobile: pushes content slightly lower so the top of the 3D scene is visible. 
+            Desktop: centers the content vertically. */}
+        <div className="min-h-[calc(100dvh-5rem)] sm:min-h-[calc(100dvh-6rem)] flex flex-col justify-end md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pb-12">
           
-          {/* Profile card — narrow "sidebar" card anchored bottom-left on desktop */}
-          <div className="pointer-events-auto w-full max-w-sm md:max-w-md backdrop-blur-xl bg-indigo-950/40 p-5 sm:p-6 md:p-7 rounded-3xl border border-indigo-400/20 shadow-[0_0_50px_-12px_rgba(79,70,229,0.4)] flex flex-col md:flex-row gap-5 items-center md:items-start text-center md:text-left">
+          {/* Floating Profile Content — No background box, pure holographic blend */}
+          <div className="pointer-events-auto w-full max-w-5xl flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start text-center md:text-left px-2 sm:px-0">
             
-            {/* Circular photo */}
-            <div className="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-indigo-400/50 shadow-[0_0_25px_0_rgba(99,102,241,0.6)] overflow-hidden">
+            {/* Circular photo — perfectly scales from phone to desktop */}
+            <div className="relative flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full border-2 border-indigo-400/30 shadow-[0_0_40px_rgba(79,70,229,0.5)] overflow-hidden">
               <Image
                 src={profilePic}
                 alt="Phindile Sandi Developer Profile"
@@ -27,26 +30,29 @@ export default function Home() {
               />
             </div>
 
-            {/* Text block */}
-            <div className="flex-1 flex flex-col gap-3 w-full min-w-0">
-              <div className="flex items-center gap-2 flex-wrap justify-center md:justify-start">
-                <span className="px-3 py-1 text-[10px] font-bold tracking-widest text-emerald-400 bg-emerald-400/10 rounded-full border border-emerald-400/20 whitespace-nowrap">
+            {/* Text block — heavily protected against mobile overflowing */}
+            <div className="flex-1 flex flex-col gap-4 w-full min-w-0 justify-center">
+              
+              {/* Badges — flex-wrap ensures they stack on tiny phone screens */}
+              <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
+                <span className="px-3 py-1 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
                   AVAILABLE FOR HIRE
                 </span>
-                <span className="text-xs text-indigo-300 font-mono whitespace-nowrap">
+                <span className="text-xs md:text-sm text-indigo-200 font-mono whitespace-nowrap bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full">
                   📍 Germiston, Gauteng
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200 drop-shadow-lg">
+              {/* Glowing Holographic Title — dynamically sized */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_20px_rgba(79,70,229,0.8)] break-words">
                 Phindile Sandi
               </h1>
 
-              <p className="text-sm md:text-lg text-indigo-300 font-semibold tracking-wide">
+              <p className="text-lg md:text-2xl text-indigo-200 font-semibold tracking-wide drop-shadow-lg text-balance">
                 Software Developer & Data Solutions Architect
               </p>
 
-              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm md:text-lg text-slate-100 leading-relaxed drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)] max-w-3xl">
                 Detail-oriented Software Developer with hands-on experience designing and
                 deploying scalable full-stack applications. Proven ability to architect
                 backend systems, optimize databases, and manage project scopes from concept
@@ -54,11 +60,11 @@ export default function Home() {
                 pipelines, and automation to architect digital transformation.
               </p>
 
-              <p className="text-xs text-indigo-200/60 font-mono inline-block px-4 py-2 bg-black/30 rounded-lg border border-white/5 w-max mx-auto md:mx-0">
+              <p className="text-sm md:text-base text-emerald-300 font-mono mt-2 drop-shadow-lg font-bold">
                 Direct Line:{' '}
                 <a
                   href="tel:0680740380"
-                  className="text-white hover:text-indigo-300 transition-colors"
+                  className="text-white hover:text-indigo-300 transition-colors underline decoration-indigo-400/50 underline-offset-4"
                 >
                   068 074 0380
                 </a>
