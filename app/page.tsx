@@ -5,22 +5,21 @@ import profilePic from '@/public/image_0.png';
 export default function Home() {
   return (
     <main className="relative w-full h-[100dvh] overflow-hidden bg-transparent">
-      {/* 3D Spline Background — locked in place, fully visible on all devices */}
+      {/* 3D Spline Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Spline scene="https://prod.spline.design/ZQi1715fbVk90eut/scene.splinecode" />
       </div>
 
-      {/* Scrollable overlay layer — handles mobile scrolling natively without breaking h-[100dvh] */}
+      {/* Scrollable overlay layer */}
       <div className="absolute inset-0 z-10 overflow-y-auto pointer-events-none pt-20 sm:pt-24 custom-scrollbar">
         
-        {/* Mobile: pushes content slightly lower so the top of the 3D scene is visible. 
-            Desktop: centers the content vertically. */}
-        <div className="min-h-[calc(100dvh-5rem)] sm:min-h-[calc(100dvh-6rem)] flex flex-col justify-end md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pb-12">
+        {/* Adjusted flex alignment to prevent vertical squishing on mobile */}
+        <div className="min-h-[calc(100dvh-5rem)] flex flex-col justify-start md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pb-12 mt-8 md:mt-0">
           
-          {/* Floating Profile Content — No background box, pure holographic blend */}
-          <div className="pointer-events-auto w-full max-w-5xl flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start text-center md:text-left px-2 sm:px-0">
+          {/* THE FIX: Protective glass container on mobile, holographic float on desktop */}
+          <div className="pointer-events-auto w-full max-w-5xl flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start text-center md:text-left p-6 sm:p-8 md:p-0 rounded-3xl bg-black/60 backdrop-blur-md border border-white/10 md:bg-transparent md:backdrop-blur-none md:border-transparent shadow-2xl md:shadow-none mt-4">
             
-            {/* Circular photo — perfectly scales from phone to desktop */}
+            {/* Circular photo */}
             <div className="relative flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full border-2 border-indigo-400/30 shadow-[0_0_40px_rgba(79,70,229,0.5)] overflow-hidden">
               <Image
                 src={profilePic}
@@ -30,25 +29,22 @@ export default function Home() {
               />
             </div>
 
-            {/* Text block — heavily protected against mobile overflowing */}
+            {/* Text block */}
             <div className="flex-1 flex flex-col gap-4 w-full min-w-0 justify-center">
               
-              {/* Badges — flex-wrap ensures they stack on tiny phone screens */}
               <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
-                <span className="px-3 py-1 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
+                <span className="px-3 py-1 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/60 md:bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
                   AVAILABLE FOR HIRE
                 </span>
-                <span className="text-xs md:text-sm text-indigo-200 font-mono whitespace-nowrap bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full">
+                <span className="text-xs md:text-sm text-indigo-200 font-mono whitespace-nowrap bg-black/60 md:bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-white/5">
                   📍 Germiston, Gauteng
                 </span>
               </div>
 
-              {/* Glowing Holographic Title — dynamically sized */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_20px_rgba(79,70,229,0.8)] break-words">
                 Phindile Sandi
               </h1>
 
-              {/* FIXED: Replaced & with &amp; to prevent build crashes */}
               <p className="text-lg md:text-2xl text-indigo-200 font-semibold tracking-wide drop-shadow-lg text-balance">
                 Software Developer &amp; Data Solutions Architect
               </p>
