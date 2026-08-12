@@ -95,4 +95,4 @@ export default function Projects() {
       </div>
     </main>
   );
-}'
+}
