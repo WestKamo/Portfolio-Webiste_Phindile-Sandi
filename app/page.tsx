@@ -10,18 +10,24 @@ export default function Home() {
         <Spline scene="https://prod.spline.design/ZQi1715fbVk90eut/scene.splinecode" />
       </div>
 
-      {/* Scrollable overlay layer */}
+      {/* Scrollable overlay layer.
+          NOTE: no min-h-screen / vh-based padding here. On mobile, 100vh
+          and 100dvh disagree (vh ignores the address bar), so mixing them
+          inside a 100dvh parent made this element taller than its
+          scroll container and re-measure on every address-bar show/hide —
+          that thrash, combined with the WebGL canvas underneath, is what
+          was crashing the page. min-h-full + flex handles the "push to
+          bottom on mobile" behavior without any viewport-unit math. */}
       <div className="absolute inset-0 z-10 overflow-y-auto pointer-events-none custom-scrollbar">
-        
-        {/* 
-          pt-[40vh]: Pushes the content down on mobile so the top 40% of the screen is just the robot.
-          pb-32: Massive bottom padding to prevent the phone browser from cutting off the text. 
-        */}
-        <div className="min-h-screen flex flex-col justify-end md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pt-[40vh] md:pt-0 pb-32 md:pb-12">
-          
-          {/* Softer glass box that sits lower on the screen */}
+        <div className="min-h-full flex flex-col justify-end md:justify-center items-center md:items-start p-4 sm:p-8 md:p-16 lg:p-24 pb-10 md:pb-12">
+          {/* Glass card.
+              NOTE: this is now the ONLY backdrop-blur layer on top of the
+              Spline canvas (besides the fixed navbar). The previous version
+              stacked blur on the card AND blur on both badges — up to 4
+              simultaneous backdrop-filter layers over a live WebGL context,
+              which is a known crash trigger on mobile Safari/Chrome GPUs.
+              The badges below now use a solid bg instead of their own blur. */}
           <div className="pointer-events-auto w-full max-w-5xl flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start text-center md:text-left p-6 sm:p-8 md:p-0 rounded-3xl bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none border border-white/10 md:border-transparent shadow-2xl md:shadow-none">
-            
             {/* Circular photo */}
             <div className="relative flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full border-2 border-indigo-400/30 shadow-[0_0_40px_rgba(79,70,229,0.5)] overflow-hidden">
               <Image
@@ -34,12 +40,11 @@ export default function Home() {
 
             {/* Text block */}
             <div className="flex-1 flex flex-col gap-4 w-full min-w-0 justify-center">
-              
               <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
-                <span className="px-3 py-1 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/60 md:bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
+                <span className="px-3 py-1 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/60 rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
                   AVAILABLE FOR HIRE
                 </span>
-                <span className="text-xs md:text-sm text-indigo-200 font-mono whitespace-nowrap bg-black/60 md:bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-white/5">
+                <span className="text-xs md:text-sm text-indigo-200 font-mono whitespace-nowrap bg-black/60 px-3 py-1 rounded-full border border-white/5">
                   📍 Germiston, Gauteng
                 </span>
               </div>
