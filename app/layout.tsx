@@ -1,11 +1,10 @@
-import type { Metadata } from 'next';
-import Navbar from './components/Navbar';
-import './globals.css';
+import type { Metadata } from "next";
+import Navbar from "./components/Navbar";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Phindile Sandi | Software Developer & Data Solutions Architect',
-  description:
-    'Portfolio of Phindile Sandi — Software Developer & Data Solutions Architect.',
+  title: "Phindile Sandi | Junior Software Developer",
+  description: "Portfolio of Phindile Sandi — Junior Software Developer.",
 };
 
 export default function RootLayout({
@@ -15,10 +14,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-indigo-950 via-slate-950 to-black text-white font-sans antialiased">
+      <body className="antialiased">
         {/* Persistent ribbon nav */}
+        <a className="skip" href="#main">
+          Skip to content
+        </a>
         <Navbar />
         {children}
+        <footer className="footer">
+          <span>Designed & built by Phindile Sandi.</span>
+          <a href="https://github.com/WestKamo">GitHub ↗</a>
+        </footer>
       </body>
     </html>
   );
