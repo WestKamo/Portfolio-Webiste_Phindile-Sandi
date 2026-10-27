@@ -10,10 +10,10 @@ linked to `#` as if it were a live deployment.
 
 ## Changes
 - Preserve all three original Spline scene URLs in bounded artwork panels.
-- Dynamically import the runtime only after activation. Mobile/tablet, reduced-motion,
-  and data-saving visitors start with lightweight CSS artwork and a Play 3D control.
-- Desktop pointer devices may start automatically. Dispose scenes on stop, navigation,
-  leaving the viewport, tab hiding, load timeout, or context loss.
+- Automatically start the dynamically imported runtime when the scene is visible on
+  all screen sizes. Pause/resume remains available. Dispose scenes on pause, navigation,
+  leaving the viewport, tab hiding, load timeout, or context loss. Visibility restores
+  automatic playback unless manually paused or failed; failures require explicit retry.
 - Keep portfolio content independent from the scene load and error lifecycle.
 - Use normal document scrolling, opaque surfaces, responsive ribbon navigation,
   visible focus states, a skip link, and reduced-motion styles.
@@ -34,10 +34,12 @@ original Spline assets: complex scene geometry/textures can still exceed GPU mem
 On iOS Safari and Android Chrome, at 320px, 390px, tablet and desktop widths:
 1. Open every route directly and via the ribbon; check readability, image loading,
    focus visibility, scrolling, and absence of horizontal overflow.
-2. On a phone, confirm no Spline scene loads before Play 3D; activate it, then stop it.
+2. On a phone, confirm Spline starts when visible; pause/resume it and verify manual
+   pause persists after scrolling away and back.
 3. Scroll the scene out of view, switch tabs, and change routes; verify it is released.
 4. Block prod.spline.design: verify the page stays usable and offers retry after failure.
-5. Enable reduced motion: confirm no automatic 3D or entrance animation.
+5. Enable reduced motion: confirm CSS entrance animations stop. Spline autoplays by
+   explicit product choice; its Pause animation control must remain accessible.
 6. Verify email, phone, GitHub and website destinations.
 7. If activation still crashes a device, optimize textures, geometry, lights, shadows,
    and effects in the original Spline editor; a JavaScript fallback cannot recover

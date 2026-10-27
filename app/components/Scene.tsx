@@ -5,77 +5,74 @@ import type { Application } from "@splinetool/runtime";
 
 export default function Scene({ scene }: { scene: string }) {
   const host = useRef<HTMLDivElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [status, setStatus] = useState("Explore the interactive dimension");
+  const [visible, setVisible] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [status, setStatus] = useState("Loading 3D experience…");
+  const playing = visible && !paused && !failed;
+
   useEffect(() => {
-    const desktop = window.matchMedia(
-      "(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-    );
-    const connection = (
-      navigator as Navigator & { connection?: { saveData?: boolean } }
-    ).connection;
-    const timer = window.setTimeout(() => {
-      if (desktop.matches && !connection?.saveData) setPlaying(true);
-    }, 1000);
-    const hide = () => {
-      if (document.hidden) setPlaying(false);
+    if (!host.current) return;
+    let inView = false;
+    const sync = () => {
+      setVisible(inView && !document.hidden);
+      setStatus("Loading 3D experience…");
     };
-    document.addEventListener("visibilitychange", hide);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        sync();
+      },
+      { threshold: 0 },
+    );
+    observer.observe(host.current);
+    document.addEventListener("visibilitychange", sync);
     return () => {
-      clearTimeout(timer);
-      document.removeEventListener("visibilitychange", hide);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
     };
   }, []);
+
   useEffect(() => {
     if (!playing || !host.current) return;
     let cancelled = false;
     let app: Application | undefined;
-    const container = host.current;
     const canvas = document.createElement("canvas");
     canvas.style.cssText =
       "width:100%;height:100%;display:block;touch-action:pan-y";
-    container.appendChild(canvas);
+    host.current.appendChild(canvas);
     const fail = () => {
-      if (!cancelled) {
-        setStatus("3D unavailable. Your portfolio is still ready to explore.");
-        setPlaying(false);
-      }
+      if (!cancelled) setFailed(true);
     };
     canvas.addEventListener("webglcontextlost", fail);
     const timeout = window.setTimeout(fail, 30000);
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) setPlaying(false);
-      },
-      { threshold: 0 },
-    );
-    observer.observe(container);
     async function load() {
       try {
         const { Application } = await import("@splinetool/runtime");
         if (cancelled) return;
         app = new Application(canvas, { renderMode: "auto" });
         await app.load(scene);
-        if (cancelled) {
-          app.dispose();
-          return;
-        }
+        if (cancelled) return;
         clearTimeout(timeout);
         setStatus("Live Spline experience");
       } catch {
         fail();
       }
     }
-    void load();
+    // Allow the page content to paint before starting the 3D runtime.
+    const start = window.setTimeout(() => {
+      void load();
+    }, 250);
     return () => {
       cancelled = true;
+      clearTimeout(start);
       clearTimeout(timeout);
-      observer.disconnect();
       canvas.removeEventListener("webglcontextlost", fail);
       app?.dispose();
       canvas.remove();
     };
   }, [playing, scene]);
+
   return (
     <section className="scene" aria-label="Interactive Spline artwork">
       <div className="orb" aria-hidden="true">
@@ -83,19 +80,30 @@ export default function Scene({ scene }: { scene: string }) {
       </div>
       <div ref={host} className="scene-canvas" />
       <div className="scene-caption">
-        <span role="status">{status}</span>
+        <span role="status">
+          {failed
+            ? "3D unavailable. Your portfolio is still ready to explore."
+            : paused
+              ? "Animation paused"
+              : visible
+                ? status
+                : "Animation resumes when visible"}
+        </span>
         <button
           className="button small"
           onClick={() => {
-            setStatus(
-              playing
-                ? "3D paused. Play whenever you’re ready."
-                : "Loading 3D experience…",
-            );
-            setPlaying(!playing);
+            setStatus("Loading 3D experience…");
+            if (failed) {
+              setFailed(false);
+              setPaused(false);
+            } else setPaused((value) => !value);
           }}
         >
-          {playing ? "Stop 3D" : "Play 3D ↗"}
+          {failed
+            ? "Retry animation"
+            : paused
+              ? "Resume animation"
+              : "Pause animation"}
         </button>
       </div>
     </section>

@@ -40,8 +40,34 @@ export default function Projects() {
           </div>
         </article>
         <article className="card">
-          <span className="index">02 / 3D PRINTING & COMMERCE</span>
+          <span className="index">02 / BAKERY E-COMMERCE</span>
+          <h2>Luu Tasty Treats</h2>
+          <p>
+            A digital storefront for an artisan bakery, bringing cake discovery,
+            product presentation, and a welcoming shopping experience together
+            across phones and laptops.
+          </p>
+          <div className="tags">
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Responsive UI</span>
+            <span>E-commerce</span>
+          </div>
+          <div className="actions">
+            <a
+              className="button primary"
+              href="https://luu-tasty-treatsfrontend-zeta.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit bakery ↗
+            </a>
+          </div>
+        </article>
+        <article className="card">
+          <span className="index">03 / 3D PRINTING & COMMERCE</span>
           <h2>Voxel Ventures</h2>
+          <p className="eyebrow">Coming soon · Live launch on the way</p>
           <p>
             A web ordering concept for on-demand 3D printed parts, connecting
             custom prototypes with a simpler digital ordering experience.
