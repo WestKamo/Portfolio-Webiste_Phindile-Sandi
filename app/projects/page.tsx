@@ -1,97 +1,65 @@
-import Link from 'next/link';
-import Spline from '@splinetool/react-spline/next';
-
+import Link from "next/link";
+import Scene from "../components/Scene";
 export default function Projects() {
   return (
-    <main className="relative w-full h-[100dvh] overflow-hidden bg-transparent">
-      {/* 3D Spline Background — locked in place, fully visible */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Spline scene="https://prod.spline.design/CEQyHffx8Jx75L-T/scene.splinecode" />
+    <main id="main" className="shell">
+      <header className="page-heading">
+        <p className="eyebrow">01 / SELECTED WORK</p>
+        <h1>
+          Ideas into
+          <br />
+          <em>working software.</em>
+        </h1>
+        <p>
+          Exploring the space between useful products, considered interfaces,
+          and the systems that make them work.
+        </p>
+      </header>
+      <div className="page-grid">
+        <article className="card">
+          <span className="index">01 / WEB APPLICATION</span>
+          <h2>whygodwhy.co.za</h2>
+          <p>
+            A full-stack web platform bringing interface design, database
+            structure, and backend integrations together in one application.
+          </p>
+          <div className="tags">
+            <span>Full stack</span>
+            <span>UI / UX</span>
+            <span>Data</span>
+          </div>
+          <div className="actions">
+            <a
+              className="button primary"
+              href="https://whygodwhy.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit website ↗
+            </a>
+          </div>
+        </article>
+        <article className="card">
+          <span className="index">02 / 3D PRINTING & COMMERCE</span>
+          <h2>Voxel Ventures</h2>
+          <p>
+            A web ordering concept for on-demand 3D printed parts, connecting
+            custom prototypes with a simpler digital ordering experience.
+          </p>
+          <div className="tags">
+            <span>E-commerce</span>
+            <span>Ordering workflows</span>
+            <span>Prototyping</span>
+          </div>
+          <div className="actions">
+            <Link className="button" href="/contact">
+              Discuss the project ↗
+            </Link>
+          </div>
+        </article>
       </div>
-
-      {/* Scrollable overlay layer */}
-      <div className="absolute inset-0 z-10 overflow-y-auto pointer-events-none custom-scrollbar pt-20 sm:pt-24">
-        
-        {/* Top-Right Return Button — Independent from the project cards */}
-        <div className="w-full flex justify-end px-6 sm:px-8 md:px-16 lg:px-24 pt-4 pointer-events-none">
-          <Link 
-            href="/" 
-            className="pointer-events-auto px-5 py-2 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2 w-max text-sm font-semibold text-white shadow-lg drop-shadow-md"
-          >
-            ← Return to Hub
-          </Link>
-        </div>
-
-        {/* Projects Container — Holds all current and future projects */}
-        <div className="flex flex-col gap-32 items-center md:items-end p-6 sm:p-8 md:p-16 lg:p-24 pb-32 min-h-[calc(100dvh-10rem)] justify-center md:justify-start mt-4 md:mt-0">
-          
-          {/* PROJECT 1: whygodwhy.co.za */}
-          <div className="pointer-events-auto w-full max-w-3xl flex flex-col gap-6 text-center md:text-right px-2 sm:px-0">
-            
-            {/* Badge */}
-            <div className="flex items-center justify-center md:justify-end">
-              <span className="px-4 py-1.5 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
-                PRODUCTION DEPLOYMENT
-              </span>
-            </div>
-
-            {/* Glowing Holographic Title */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_20px_rgba(79,70,229,0.8)] break-words">
-              whygodwhy.co.za
-            </h2>
-
-            {/* High-Contrast Description */}
-            <p className="text-base sm:text-lg md:text-xl text-slate-100 leading-relaxed drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)] max-w-2xl mx-auto md:mx-0 md:ml-auto text-balance">
-              A multi-layered full-stack web application platform demonstrating seamless UI/UX implementation, an analytics-oriented database schema, and robust backend integrations. Built to production-grade standards.
-            </p>
-
-            {/* Launch Button */}
-            <div className="flex justify-center md:justify-end mt-4">
-              <a 
-                href="https://whygodwhy.co.za" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-indigo-500/80 backdrop-blur-md border border-indigo-400/50 text-white font-bold hover:bg-indigo-400 hover:shadow-[0_0_25px_rgba(99,102,241,0.6)] hover:-translate-y-1 transition-all transform shadow-lg"
-              >
-                Launch Application <span className="font-mono text-xl">↗</span>
-              </a>
-            </div>
-          </div>
-          
-          {/* PROJECT 2: Voxel Ventures */}
-          <div className="pointer-events-auto w-full max-w-3xl flex flex-col gap-6 text-center md:text-right px-2 sm:px-0">
-            
-            {/* Badge */}
-            <div className="flex items-center justify-center md:justify-end">
-              <span className="px-4 py-1.5 text-[10px] md:text-xs font-bold tracking-widest text-emerald-300 bg-black/40 backdrop-blur-sm rounded-full border border-emerald-400/20 whitespace-nowrap shadow-lg">
-                E-COMMERCE PLATFORM
-              </span>
-            </div>
-
-            {/* Glowing Holographic Title */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_20px_rgba(79,70,229,0.8)] break-words">
-              Voxel Ventures
-            </h2>
-
-            {/* High-Contrast Description */}
-            <p className="text-base sm:text-lg md:text-xl text-slate-100 leading-relaxed drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)] max-w-2xl mx-auto md:mx-0 md:ml-auto text-balance">
-              An end-to-end web ordering system designed for on-demand 3D printed components. Features a dynamic digital cart integration to streamline the procurement of rapid prototypes, custom parts, and specialized industrial 3D printing applications.
-            </p>
-
-            {/* Launch Button (Placeholder Link) */}
-            <div className="flex justify-center md:justify-end mt-4">
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-indigo-500/80 backdrop-blur-md border border-indigo-400/50 text-white font-bold hover:bg-indigo-400 hover:shadow-[0_0_25px_rgba(99,102,241,0.6)] hover:-translate-y-1 transition-all transform shadow-lg"
-              >
-                Launch Application <span className="font-mono text-xl">↗</span>
-              </a>
-            </div>
-          </div>
-          
-        </div>
+      <div className="principles">
+        <Scene scene="https://prod.spline.design/CEQyHffx8Jx75L-T/scene.splinecode" />
       </div>
     </main>
   );
